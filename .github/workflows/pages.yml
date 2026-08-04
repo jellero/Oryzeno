@@ -1,4 +1,4 @@
-name: Deploy Oryzeno validation site
+name: Deploy Oryzeno OpenLink
 
 on:
   push:
@@ -20,19 +20,24 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Rebuild verified site bundle
+      - name: Rebuild and verify website
         shell: bash
         run: |
           set -euo pipefail
+          rm -rf _site
           mkdir -p _site
-          cat archive/part-* | base64 -d > /tmp/oryzeno-openlink-v2.zip
-          echo "5b25d853e7db496c49c5fa8ade82c1fb482ccae34e62be940e6dba662af1fb15  /tmp/oryzeno-openlink-v2.zip" | sha256sum -c -
-          unzip -q /tmp/oryzeno-openlink-v2.zip -d _site
-          rm -rf _site/.github
+          cat site/oryzeno-openlink-beautiful.b64.part* | base64 --decode > /tmp/oryzeno-openlink-beautiful.zip
+          echo "aed4bf0876fec10b9ffcf931db3ade0c620018bdab305becf8d880672dc84d8d  /tmp/oryzeno-openlink-beautiful.zip" | sha256sum --check --strict
+          unzip -q /tmp/oryzeno-openlink-beautiful.zip -d _site
+          rm -rf _site/.github _site/backend
+          test -f _site/index.html
+          test -f _site/styles.css
+          test -f _site/app.js
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
