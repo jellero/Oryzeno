@@ -1,59 +1,84 @@
-# Oryzeno OpenLink
+# Oryzeno OpenLink — piattaforma di validazione
 
-Sito statico di pre-lancio per una raccolta fondi destinata allo sviluppo di un terminale satellitare GEO a capacità affittata.
+Questa branch contiene la ricostruzione completa del sito Oryzeno OpenLink come piattaforma di **pre-lancio e manifestazione d’interesse**, prima dell’apertura di qualsiasi raccolta fondi.
 
-## Stato
+## Obiettivo
 
-La raccolta è deliberatamente **disattivata**. Prima di accettare pagamenti occorre:
+Validare con dati verificati la domanda per un terminale satellitare a basso consumo destinato a infrastrutture e località remote, attraverso due programmi distinti:
 
-1. scegliere/costituire il soggetto organizzatore;
-2. completare i dati in `config.js`;
-3. far revisionare condizioni, privacy, fiscalità e modello di raccolta da professionisti italiani;
-4. creare un pulsante PayPal Donate e inserire il relativo `hostedButtonId`;
-5. impostare `paypal.enabled: true`;
-6. verificare il sito in sandbox e in produzione.
+- **OpenLink Pro** — monitoraggio, backup fuori banda, telemetria, fotografie e clip su evento per imprese e gestori di infrastrutture;
+- **OpenLink Commons** — capacità gratuita o sponsorizzata per privati, ricerca, ambiente, comunità remote, associazioni ed emergenze.
 
-## PayPal
+Il sito non promette ancora un prodotto, un servizio commerciale o una ricompensa. La raccolta fondi e PayPal restano disattivati.
 
-L’integrazione utilizza PayPal Donate SDK e funziona su hosting statico.
+## Contenuti inclusi
 
-```js
-paypal: {
-  enabled: true,
-  environment: "production",
-  hostedButtonId: "ID_FORNITO_DA_PAYPAL",
-  business: ""
-}
+- homepage completa e responsive;
+- casi d’uso per energia, acqua, meteo, montagna, webcam, incendi, telecomunicazioni, cloud edge ed emergenze;
+- matrice tecnica di ciò che il collegamento può e non può fare;
+- specifiche-obiettivo del terminale, indicate chiaramente come non definitive;
+- roadmap, gate di validazione e budget preliminare a milestone;
+- pagine mercato, trasparenza, rischi, privacy, cookie e condizioni;
+- moduli separati per privati, aziende e istituzioni;
+- modello di lettera d’interesse non vincolante;
+- backend Cloudflare Worker + D1 per double opt-in, anti-abuso, statistiche aggregate, revoca ed export amministrativo.
+
+## Stato dei moduli
+
+I moduli sono intenzionalmente disabilitati in `config.js` finché non sono configurati:
+
+1. soggetto giuridico e contatti del titolare;
+2. dominio pubblico definitivo;
+3. Cloudflare Worker, database D1 e migrazioni;
+4. Cloudflare Turnstile;
+5. Resend e dominio email verificato;
+6. revisione legale e privacy professionale.
+
+Non inserire secret nel repository pubblico.
+
+## Sorgente distribuita
+
+Per superare i limiti del connettore di pubblicazione, il pacchetto sorgente completo è salvato in Base64 nei file `archive/part-*`.
+
+Ricostruzione locale:
+
+```bash
+cat archive/part-* | base64 -d > oryzeno-openlink-v2.zip
+echo "5b25d853e7db496c49c5fa8ade82c1fb482ccae34e62be940e6dba662af1fb15  oryzeno-openlink-v2.zip" | sha256sum -c -
+unzip oryzeno-openlink-v2.zip -d oryzeno-openlink-v2
 ```
 
-In alternativa si può valorizzare `business`, ma per un account Business è preferibile l’ID del pulsante ospitato. Il sito carica PayPal soltanto dopo l’azione esplicita dell’utente.
+SHA-256 del pacchetto:
 
-## Avanzamento raccolta
-
-Aggiornare manualmente in `config.js`:
-
-```js
-campaign: {
-  goal: 500000,
-  raised: 12500,
-  supporters: 214
-}
+```text
+5b25d853e7db496c49c5fa8ade82c1fb482ccae34e62be940e6dba662af1fb15
 ```
 
-Un aggiornamento automatico richiede un backend sicuro, API PayPal e webhook. Non inserire secret nel repository pubblico.
+## Pubblicazione
 
-## Pubblicazione GitHub Pages
+Il workflow `.github/workflows/pages.yml` ricostruisce il pacchetto, verifica l’hash e pubblica il sito su GitHub Pages dopo il merge in `main`.
 
-È incluso `.github/workflows/pages.yml`. Nel repository aprire **Settings → Pages → Build and deployment → Source: GitHub Actions**. Dopo il primo deploy il sito dovrebbe essere disponibile nel dominio Pages del repository.
+Nel repository impostare, una sola volta:
 
-## Documenti legali
+**Settings → Pages → Build and deployment → Source: GitHub Actions**
 
-Le pagine fornite sono bozze operative e non consulenza legale. In particolare, il modello “keep-it-all” è presentato come donazione senza reward, prodotto, servizio o investimento. Se vengono aggiunti dispositivi, abbonamenti, ricompense o preordini, occorre riscrivere le condizioni applicando disciplina consumer, fiscale e di vendita a distanza.
+## Sicurezza e privacy
 
-## Sicurezza
+- nessuna carta o pagamento viene gestito dal sito;
+- nessun analytics o cookie di profilazione è incluso;
+- il consenso marketing è separato e facoltativo;
+- l’adesione viene conteggiata solo dopo double opt-in;
+- Turnstile viene verificato lato server;
+- le statistiche pubbliche sono aggregate e applicano una soglia minima per categoria;
+- ogni aderente riceve un collegamento personale per revocare la manifestazione;
+- le chiavi amministrative, Resend e Turnstile devono essere configurate come secret del Worker.
 
-- nessun dato carta è gestito dal sito;
-- nessun analytics è incluso;
-- PayPal viene caricato soltanto su azione dell’utente;
-- non pubblicare credenziali API o secret;
-- per progressi automatici usare un backend e verificare le firme webhook.
+## Verifiche eseguite
+
+- sintassi JavaScript;
+- integrità ZIP e SHA-256;
+- collegamenti interni e file referenziati;
+- assenza di dipendenze frontend esterne;
+- struttura del backend e migrazione D1.
+
+Le bozze legali richiedono revisione professionale prima della pubblicazione operativa.
