@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jellero.github.io/Oryzeno/sitemap.xml
