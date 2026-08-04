@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Oryzeno OpenLink: terminale satellitare open e a basso consumo per telemetria, fotografie e connettività essenziale in località remote.">
+  <meta name="theme-color" content="#08131f">
+  <title>Oryzeno OpenLink — Connettività essenziale, ovunque</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Oryzeno OpenLink, home">
+        <span class="brand-mark" aria-hidden="true">◉</span>
+        <span>ORYZENO <strong>OPENLINK</strong></span>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <a href="#progetto">Progetto</a>
+        <a href="#device">Device</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#budget">Budget</a>
+        <a href="#sostieni" class="nav-cta">Sostieni</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="orb orb-one" aria-hidden="true"></div>
+      <div class="orb orb-two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">PROGETTO OPEN · RETE GEO IN CAPACITÀ AFFITTATA</p>
+          <h1>Connettività essenziale per i luoghi dove la rete non arriva.</h1>
+          <p class="lead">Un terminale compatto, orientabile con un’app, alimentabile a batteria e pannello solare. Pensato per telemetria remota, fotografie, messaggi, piccoli trasferimenti e brevi stream a bassa qualità.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#sostieni">Sostieni il progetto</a>
+            <a class="button secondary" href="#roadmap">Esamina il piano</a>
+          </div>
+          <p class="prelaunch-notice"><strong>Stato:</strong> pre-lancio. Le donazioni reali resteranno disattivate finché non saranno inseriti i dati legali dell’organizzatore e l’identificativo PayPal.</p>
+        </div>
+        <div class="device-visual" role="img" aria-label="Rappresentazione del terminale satellitare Oryzeno OpenLink">
+          <div class="satellite-dot"></div>
+          <div class="signal signal-1"></div>
+          <div class="signal signal-2"></div>
+          <div class="signal signal-3"></div>
+          <div class="terminal">
+            <div class="terminal-face">
+              <div class="antenna-grid"></div>
+              <span class="terminal-logo">OPENLINK</span>
+            </div>
+            <div class="terminal-base"></div>
+          </div>
+          <div class="visual-label">Antenna piatta stimata 18–25 cm</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="campaign-strip" aria-label="Stato raccolta">
+      <div class="container campaign-grid">
+        <div>
+          <span class="metric-label">Raccolti</span>
+          <strong class="metric" id="raisedAmount">€0</strong>
+        </div>
+        <div>
+          <span class="metric-label">Obiettivo fase pilota</span>
+          <strong class="metric" id="goalAmount">€500.000</strong>
+        </div>
+        <div>
+          <span class="metric-label">Sostenitori</span>
+          <strong class="metric" id="supporterCount">0</strong>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-copy"><span>Avanzamento</span><strong id="progressPercent">0%</strong></div>
+          <div class="progress-track" aria-label="Avanzamento raccolta"><span id="progressBar"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="progetto" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">LA MISSIONE</p>
+          <h2>Internet minimale, non una nuova rete consumer.</h2>
+        </div>
+        <div class="prose">
+          <p>OpenLink nasce per baite, impianti isolati, agricoltura, monitoraggio ambientale, protezione civile e infrastrutture senza copertura terrestre. Il progetto non prevede il lancio immediato di un satellite privato: la prima rete utilizzerà capacità affittata su un satellite geostazionario e concentrerà lo sviluppo sul terminale, sul protocollo e sul gateway.</p>
+          <p>La velocità obiettivo è fino a <strong>80–100 kbit/s netti</strong> durante brevi sessioni. Il servizio gratuito dovrà avere quote e priorità: telemetria e allarmi prima di fotografie e video. Nessuna capacità sarà descritta come garantita finché non sarà firmato un contratto con l’operatore satellitare.</p>
+        </div>
+      </div>
+      <div class="container cards three">
+        <article class="card"><span class="card-index">01</span><h3>Telemetria</h3><p>Sensori, allarmi, stato impianti, meteo, energia, livelli e localizzazione.</p></article>
+        <article class="card"><span class="card-index">02</span><h3>Immagini e audio</h3><p>Fotografie compresse, messaggi vocali e clip brevi inviati a richiesta o su evento.</p></article>
+        <article class="card"><span class="card-index">03</span><h3>Accesso essenziale</h3><p>Messaggistica, pagine leggere e piccoli dati tramite proxy e limiti equi di utilizzo.</p></article>
+      </div>
+    </section>
+
+    <section id="device" class="section section-dark">
+      <div class="container">
+        <p class="eyebrow">IL TERMINALE</p>
+        <h2>Compatto, fisso e allineabile dallo smartphone.</h2>
+        <div class="spec-grid">
+          <div class="spec"><span>Ingombro obiettivo</span><strong>22 × 22 × 6 cm</strong><small>prima generazione, batteria esclusa o modulare</small></div>
+          <div class="spec"><span>Antenna</span><strong>18–25 cm</strong><small>patch array a polarizzazione circolare</small></div>
+          <div class="spec"><span>Velocità target</span><strong>10 kB/s</strong><small>circa 80 kbit/s netti, a burst</small></div>
+          <div class="spec"><span>Energia target</span><strong>10 Wh/giorno</strong><small>telemetria e sessioni limitate, non streaming continuo</small></div>
+          <div class="spec"><span>Alimentazione</span><strong>12–24 V / solare</strong><small>LiFePO₄ e pannello da 10–20 W</small></div>
+          <div class="spec"><span>Interfacce locali</span><strong>Wi-Fi · Ethernet · RS-485</strong><small>sensori, telecamere e controller industriali</small></div>
+        </div>
+        <div class="alignment-flow">
+          <div><b>1</b><span>L’app calcola azimut ed elevazione dal GPS.</span></div>
+          <div><b>2</b><span>L’utente inclina il terminale seguendo la guida visiva.</span></div>
+          <div><b>3</b><span>Il beacon radio completa l’allineamento con un indicatore di segnale.</span></div>
+          <div><b>4</b><span>Il dispositivo resta fisso: il satellite GEO non richiede inseguimento.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="container section-heading">
+        <div><p class="eyebrow">ROADMAP A SOGLIE</p><h2>Ogni tranche finanzia un risultato verificabile.</h2></div>
+        <p>La raccolta è “keep-it-all”: i fondi vengono acquisiti e impiegati progressivamente anche se l’obiettivo complessivo non viene raggiunto. Verrà finanziato il massimo numero possibile di attività in ordine di priorità.</p>
+      </div>
+      <div class="container milestones">
+        <article class="milestone"><div class="milestone-money">€30.000</div><div><span>FASE 1</span><h3>Assetto legale e architettura di sistema</h3><p>Costituzione o selezione del soggetto organizzatore, consulenza telecomunicazioni, privacy, fiscalità, analisi frequenze, requisiti e richiesta di offerte agli operatori GEO.</p><ul><li>Deliverable: dossier legale e tecnico pubblico</li><li>Durata stimata: 8–12 settimane</li></ul></div></article>
+        <article class="milestone"><div class="milestone-money">+ €70.000</div><div><span>FASE 2 · CUMULATIVO €100.000</span><h3>Dimostratore radio e link budget validato</h3><p>Banco SDR, amplificatore, antenna sperimentale, modem, simulatore di canale e test con capacità satellitare o emulatore dell’operatore.</p><ul><li>Deliverable: collegamento dati dimostrato in laboratorio</li><li>Durata stimata: 4–6 mesi</li></ul></div></article>
+        <article class="milestone"><div class="milestone-money">+ €95.000</div><div><span>FASE 3 · CUMULATIVO €195.000</span><h3>20 terminali Alpha e app di puntamento</h3><p>PCB RF, firmware, enclosure, gestione energia, app/PWA per azimut ed elevazione, API gateway e sicurezza di base.</p><ul><li>Deliverable: 20 prototipi funzionanti</li><li>Durata stimata: 5–8 mesi</li></ul></div></article>
+        <article class="milestone"><div class="milestone-money">+ €90.000</div><div><span>FASE 4 · CUMULATIVO €285.000</span><h3>Capacità GEO e gateway pilota</h3><p>Contratto pilota, banda e airtime per test, stazione gateway, infrastruttura cloud, monitoraggio e code di priorità.</p><ul><li>Deliverable: servizio end-to-end limitato</li><li>Durata stimata: 6–12 mesi di esercizio</li></ul></div></article>
+        <article class="milestone"><div class="milestone-money">+ €70.000</div><div><span>FASE 5 · CUMULATIVO €355.000</span><h3>Beta sul campo in siti remoti</h3><p>100 nodi beta, installazioni in baite e impianti, kit solare, test stagionali, misure di disponibilità e consumo.</p><ul><li>Deliverable: rapporto pubblico dei test</li><li>Durata stimata: 6–9 mesi</li></ul></div></article>
+        <article class="milestone"><div class="milestone-money">+ €95.000</div><div><span>FASE 6 · CUMULATIVO €450.000</span><h3>Pre-certificazione e industrializzazione</h3><p>Pre-compliance RED/EMC/sicurezza, revisione RF, DFM, distinta base, test ambientali e preserie.</p><ul><li>Deliverable: design candidato alla certificazione</li><li>Durata stimata: 6–10 mesi</li></ul></div></article>
+        <article class="milestone highlight"><div class="milestone-money">+ €50.000</div><div><span>FASE 7 · OBIETTIVO €500.000</span><h3>Riserva, sicurezza e trasparenza</h3><p>Contingenza tecnica, commissioni di pagamento, chargeback, audit della spesa, penetration test e pubblicazione periodica dei rendiconti.</p><ul><li>Deliverable: riserva operativa e rendiconto finale</li><li>Durata: lungo l’intero progetto</li></ul></div></article>
+      </div>
+    </section>
+
+    <section id="budget" class="section section-soft">
+      <div class="container split">
+        <div><p class="eyebrow">BUDGET</p><h2>500.000 € per arrivare a un pilota verificabile.</h2></div>
+        <div class="prose"><p>Le cifre sono stime iniziali, non preventivi vincolanti. Il costo della capacità satellitare dipenderà da copertura, banda, EIRP/G/T, volume, priorità e durata contrattuale. Ogni variazione materiale sarà pubblicata con motivazione.</p></div>
+      </div>
+      <div class="container budget-layout">
+        <div class="budget-list">
+          <div><span>Legale, spettro e sistema</span><b>€30.000 · 6%</b></div>
+          <div><span>Dimostratore radio</span><b>€70.000 · 14%</b></div>
+          <div><span>Terminali Alpha e software</span><b>€95.000 · 19%</b></div>
+          <div><span>Capacità GEO e gateway pilota</span><b>€90.000 · 18%</b></div>
+          <div><span>Beta e test sul campo</span><b>€70.000 · 14%</b></div>
+          <div><span>Compliance e industrializzazione</span><b>€95.000 · 19%</b></div>
+          <div><span>Riserva, pagamenti e sicurezza</span><b>€50.000 · 10%</b></div>
+        </div>
+        <div class="budget-total"><span>OBIETTIVO</span><strong>€500k</strong><p>Il goal finanzia ricerca, prototipazione e pilota. Non include il lancio di un satellite, la produzione di massa né la garanzia di servizio gratuito permanente.</p></div>
+      </div>
+      <div class="container stretch-grid">
+        <article><span>STRETCH €650K</span><h3>500 dispositivi Beta</h3><p>Preserie ampliata e maggiore durata del contratto di capacità pilota.</p></article>
+        <article><span>STRETCH €900K</span><h3>Tre aree dimostrative</h3><p>Piloti con enti montani, agricoltura o protezione civile in aree differenti.</p></article>
+        <article><span>STRETCH €1,5M</span><h3>Servizio regionale</h3><p>Gateway ridondato, capacità maggiore e avvio della certificazione completa.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="rischi">
+      <div class="container split">
+        <div><p class="eyebrow">TRASPARENZA</p><h2>Il progetto può non riuscire.</h2></div>
+        <div class="prose"><p>Un collegamento satellitare dipende da spettro, operatore, copertura, link budget, certificazioni e disponibilità finanziaria. La donazione non acquista un dispositivo, un abbonamento, quote societarie o un rendimento. Consulta l’informativa completa sui <a href="risks.html">rischi del progetto</a> e le <a href="terms.html">condizioni della raccolta</a>.</p></div>
+      </div>
+      <div class="container risk-cards">
+        <article><h3>Rischio tecnico</h3><p>Il terminale potrebbe richiedere antenna, potenza o costi superiori agli obiettivi.</p></article>
+        <article><h3>Rischio commerciale</h3><p>L’operatore potrebbe non offrire capacità compatibile a condizioni sostenibili.</p></article>
+        <article><h3>Rischio normativo</h3><p>Frequenze, autorizzazioni o certificazioni potrebbero limitare tempi e funzionalità.</p></article>
+        <article><h3>Rischio finanziario</h3><p>I fondi raccolti potrebbero finanziare solo le prime fasi senza arrivare al pilota.</p></article>
+      </div>
+    </section>
+
+    <section id="sostieni" class="section support-section">
+      <div class="container support-grid">
+        <div>
+          <p class="eyebrow">SOSTIENI OPENLINK</p>
+          <h2>Una donazione libera alla ricerca e prototipazione.</h2>
+          <p>La donazione è volontaria e non costituisce acquisto, investimento o preordine. I fondi vengono utilizzati progressivamente; il mancato raggiungimento del goal non comporta rimborso automatico, salvo i diritti inderogabili previsti dalla legge, transazioni non autorizzate o decisione dell’organizzatore.</p>
+          <div class="legal-check">
+            <input type="checkbox" id="termsConsent">
+            <label for="termsConsent">Dichiaro di aver letto <a href="terms.html">condizioni</a>, <a href="refunds.html">politica rimborsi</a>, <a href="privacy.html">privacy</a> e <a href="risks.html">rischi</a>.</label>
+          </div>
+        </div>
+        <div class="donation-panel">
+          <div class="donation-status" id="donationStatus">
+            <strong>Donazioni non ancora attive</strong>
+            <p>Occorre completare i dati dell’organizzatore e configurare il pulsante PayPal.</p>
+          </div>
+          <div id="paypal-donate-button-container" aria-live="polite"></div>
+          <button id="enablePaypal" class="button primary full" type="button" disabled>Continua con PayPal</button>
+          <p class="fine-print">PayPal viene caricato solo dopo un’azione esplicita. Il pagamento sarà elaborato da PayPal secondo le sue condizioni e informative.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="container">
+        <p class="eyebrow">DOMANDE FREQUENTI</p>
+        <h2>Prima di contribuire</h2>
+        <div class="faq">
+          <details><summary>Riceverò un terminale?</summary><p>No. In questa fase la contribuzione è una donazione senza ricompensa o preordine. Eventuali programmi beta saranno oggetto di condizioni separate.</p></details>
+          <details><summary>Cosa succede se non si raggiungono 500.000 €?</summary><p>I fondi non vengono restituiti automaticamente. Saranno impiegati nelle fasi prioritarie realizzabili e rendicontati pubblicamente.</p></details>
+          <details><summary>La connessione sarà davvero gratuita?</summary><p>È l’obiettivo sociale del progetto, con quote e priorità. Non è ancora una promessa contrattuale: dipenderà dai costi ricorrenti della capacità satellitare e dai finanziamenti continuativi.</p></details>
+          <details><summary>È già stato scelto un operatore satellitare?</summary><p>No. La Fase 1 include richieste di offerta e verifica tecnica con operatori GEO compatibili.</p></details>
+          <details><summary>Il dispositivo farà video continuo?</summary><p>No. Il progetto mira a telemetria, fotografie e brevi stream o clip a qualità ridotta. Lo streaming permanente sarebbe incompatibile con il budget energetico e il modello gratuito.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><a class="brand" href="index.html"><span class="brand-mark">◉</span><span>ORYZENO <strong>OPENLINK</strong></span></a><p>Progetto open per connettività essenziale in aree remote.</p></div>
+      <div><h3>Documenti</h3><a href="terms.html">Condizioni raccolta</a><a href="refunds.html">Rimborsi</a><a href="privacy.html">Privacy</a><a href="cookies.html">Cookie</a><a href="risks.html">Rischi</a></div>
+      <div><h3>Stato legale</h3><p id="organiserSummary">Dati organizzatore da completare prima dell’attivazione.</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 Oryzeno OpenLink</span><span>Versione documenti: 4 agosto 2026</span></div>
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div><strong>Privacy e servizi esterni</strong><p>Il sito non usa analytics. PayPal viene caricato solo quando scegli di procedere al pagamento.</p></div>
+    <button id="cookieOk" class="button secondary" type="button">Ho capito</button>
+    <a href="cookies.html">Dettagli</a>
+  </div>
+</body>
+</html>
