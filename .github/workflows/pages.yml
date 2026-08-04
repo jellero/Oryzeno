@@ -1,4 +1,4 @@
-name: Deploy static site to Pages
+name: Deploy Oryzeno validation site
 
 on:
   push:
@@ -23,12 +23,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Rebuild verified site bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cat archive/part-* | base64 -d > /tmp/oryzeno-openlink-v2.zip
+          echo "5b25d853e7db496c49c5fa8ade82c1fb482ccae34e62be940e6dba662af1fb15  /tmp/oryzeno-openlink-v2.zip" | sha256sum -c -
+          unzip -q /tmp/oryzeno-openlink-v2.zip -d _site
+          rm -rf _site/.github
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
